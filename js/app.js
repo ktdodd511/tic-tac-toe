@@ -5,10 +5,6 @@ $(document).ready(function() {
   console.log('js file is connected, woo!');
 
 
-//if there's it's an odd number, it's x's turn. even number, it's o's turn.
-// while (count is > 10) 
-// run function game 
-
 
 
 $('#reset').click(function() {
@@ -16,48 +12,55 @@ $('#reset').click(function() {
 });
 
 
-function ticTacToe() {
+
 
   //all of the boxes
-  var $boxes = $("box");
+  var $boxes = $(".box");
 
   var player1 = 'X';
   var player2 = 'O';
 
-
-  for (var count = 0; count > 10; count++) {
+  count = 0;
+    
+  function turn() {
     if (count % 2 === 0) {
-      boxes.click(function() {
-      console.log("I clicked something " + count);
-      boxes.text('X');
-    });
-      boxes.addClass('theX');
-
+      xTurn();
+      count +1;
+      
     } else {
-      boxes.click(function() {
-      console.log("I clicked something else " + count);
-      boxes.text('O');
-    });
-      boxes.addClass('theO');
+      oTurn();
+      count +1;
+      
     }
+
   }
+
+  function xTurn() {
+
+    $boxes.click (function() {
+    console.log("I clicked something " + count);
+    $(this).text(player1);
+    $boxes.addClass('theX');
+    
+  });
+}
+  
+  function oTurn() {
+
+    $boxes.click(function() {
+    console.log("I clicked something else " + count);
+    $boxes.text(player2);
+    $boxes.addClass('theO');
+    
+  });
 
 }
 
-ticTacToe();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      
+    
+  
 
 });
+
+
+

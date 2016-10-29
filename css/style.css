@@ -8,15 +8,12 @@
 }
 
 
-.theX {
+.theX, .theO {
   text-align: center;
   font-size: 50px;
+ 
 }
 
-.theO {
-  text-align: center;
-  font-size: 50px;
-}
 
 .btn-primary {
   background-color: blue;
