@@ -7,57 +7,67 @@ $(document).ready(function() {
 
 
 
-$('#reset').click(function() {
-  location.reload();
-});
-
-
-
-
   //all of the boxes
   var $boxes = $(".box");
 
-  var player1 = 'X';
-  var player2 = 'O';
+  var player = 'X';
 
-  count = 0;
-    
   function turn() {
-    if (count % 2 === 0) {
-      xTurn();
-      count +1;
-      
+    if (player === 'X') {
+      player = 'O';
     } else {
-      oTurn();
-      count +1;
-      
+      player = 'X';
     }
+}
 
+function resetGame() {
+  $boxes.removeClass('X');
+  $boxes.removeClass('O');
+  $boxes.text('');
+} 
+    
+
+  
+function determineWinner() {
+  var box1 = $('#box1');
+  var box2 = $('#box2');
+  var box3 = $('#box3');
+  var box4 = $('#box4');
+  var box5 = $('#box5');
+  var box6 = $('#box6');
+  var box7 = $('#box7');
+  var box8 = $('#box8');
+  var box9 = $('#box9');
+
+  if (box1 === box2 && box2 === box3 || box1 === box4 && box4 === box7
+    || box2 === box5 && box5 === box8 || box3 === box6 && box6 === box9
+    || box1 === box5 && box5 === box9 || box3 === box5 && box5 === box7) {
+    alert(player + " has won!");
+    resetGame();
+  }
+ else {
+    turn();
   }
 
-  function xTurn() {
+}
+
+
+
+
+  $('#reset').click (function() {
+    location.reload();
+  });
 
     $boxes.click (function() {
-    console.log("I clicked something " + count);
-    $(this).text(player1);
-    $boxes.addClass('theX');
-    
-  });
-}
-  
-  function oTurn() {
-
-    $boxes.click(function() {
-    console.log("I clicked something else " + count);
-    $boxes.text(player2);
-    $boxes.addClass('theO');
+    console.log('player just went');
+    $(this).text(player);
+    $boxes.addClass(player);
+    determineWinner();
     
   });
 
-}
 
-      
-    
+
   
 
 });

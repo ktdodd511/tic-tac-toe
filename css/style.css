@@ -8,14 +8,22 @@
 }
 
 
-.theX, .theO {
+.X, .O {
   text-align: center;
   font-size: 50px;
- 
+
 }
 
 
 .btn-primary {
   background-color: blue;
 
+}
+
+#box2 {
+  background-color: blue;
+}
+
+#box7 {
+  background-color: green;
 }
