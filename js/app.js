@@ -52,6 +52,19 @@ function determineWinner() {
 }
 
 
+function isBoxEmpty() {
+  var emptyBoxes = false;
+    // check if every box is empty
+    for (var i=0; i<$boxes.length; i++){
+      // as soon as an empty box is found, update hasEmptyBoxes
+      if ($boxes.eq(i).text() === ''){
+        emptyBoxes = true;
+      }
+    }
+    return emptyBoxes;
+  }
+
+
 
 
   $('#reset').click (function() {
@@ -60,9 +73,11 @@ function determineWinner() {
 
     $boxes.click (function() {
     console.log('player just went');
-    $(this).text(player);
-    $boxes.addClass(player);
-    determineWinner();
+    if ($(this).text() === '') {
+      $(this).text(player);
+      $boxes.addClass(player);
+      determineWinner();
+    }
     
   });
 

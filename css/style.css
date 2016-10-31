@@ -3,15 +3,15 @@
 }
 
 .box {
-  border: 1px solid black;
+  border: 5px solid black;
   height: 150px;
 }
 
 
 .X, .O {
   text-align: center;
-  font-size: 50px;
-
+  font-size: 90px;
+  
 }
 
 
@@ -20,10 +20,3 @@
 
 }
 
-#box2 {
-  background-color: blue;
-}
-
-#box7 {
-  background-color: green;
-}
